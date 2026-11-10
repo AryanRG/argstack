@@ -28,7 +28,7 @@ def resolve_external(name):
         os.replace(handle.name, path)
     if hashlib.sha256(path.read_bytes()).hexdigest() != item['sha256']:
         raise SystemExit(f'{name}: existing cached file differs; no link created')
-    return cache
+    return cache.resolve()
 
 
 def main():
